@@ -1,9 +1,9 @@
 # Write a linked list implementation with methods that do these things:
 # - get node by index
 # - get index of node
-# - add node at index
+# - add node at index!
 # - delete node at index
-# - returns length of list
+# - returns length of list!
 # - print list
 # Bonus:
 # - methods to find min and max of list
@@ -12,6 +12,11 @@ class Node:
 	def __init__(self, value):
 		self.next = None
 		self.value = value
+
+	def __str__(self):
+		print str(self.value)
+
+__repr__ = __str__
 
 class List:
 	def __init__(self):
@@ -22,6 +27,12 @@ class List:
 	def get_length(self):
 		print self.size
 		return self.size
+
+	def print_list(self):
+		current_node = self.head
+		while current_node:
+			print current_node.value
+			current_node = current_node.next
 
 	def print_node_value(self, index):
 		node = self.get_node_by_index(index)
@@ -56,7 +67,7 @@ class List:
 		self.size = self.size + 1
 
 	def add_node_by_index(self, value, index):
-		# text the end again!!!!!!!!!!!!
+		# not re-setting tail, why?
 		
 		if index <+ self.size + 1:
 			new_node = Node(value)
@@ -74,9 +85,8 @@ class List:
 				new_node.next = previous_node.next
 				previous_node.next = new_node
 
-			elif index == self.size:
+			else:
 				self.tail.next = new_node
-				import ipdb; pdb.set_trace()
 				self.tail = new_node
 
 		else:
