@@ -3,8 +3,8 @@
 # - get index of node
 # - add node at index!
 # - delete node at index
-# - returns length of list!
-# - print list!
+# - returns length of list
+# - print list
 # Bonus:
 # - methods to find min and max of list
 
@@ -54,7 +54,7 @@ class List:
 
 	def add_node(self, value):
 
-		new_node = Node(value)
+		new_node = Node(str(value))
 
 		if not self.head:
 			self.head = new_node
@@ -121,5 +121,15 @@ class List:
 
 		else:
 			print "Your index your index is out of range"
+
+	def get_node_by_value(self, value):
+		current_node = self.head
+		counter = 0
+		while current_node.value != value:
+			if not current_node.next:
+	 			return "Cannot find this value"
+	 		current_node = current_node.next
+	 		counter = counter + 1
+	 	return counter
 
 
