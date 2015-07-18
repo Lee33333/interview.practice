@@ -1,10 +1,10 @@
 # Write a linked list implementation with methods that do these things:
-# - get node by index
+# - get node by index!
 # - get index of node
 # - add node at index!
 # - delete node at index
 # - returns length of list!
-# - print list
+# - print list!
 # Bonus:
 # - methods to find min and max of list
 
@@ -14,9 +14,8 @@ class Node:
 		self.value = value
 
 	def __str__(self):
-		print str(self.value)
+		return str(self.value)
 
-__repr__ = __str__
 
 class List:
 	def __init__(self):
@@ -65,6 +64,37 @@ class List:
 			self.tail = new_node
 
 		self.size = self.size + 1
+
+	def delete_node_by_index(self, index):
+		# not re-setting tail, why?
+		if int(index) <= self.size -1:
+			self.size = self.size -1
+
+			if index == 0:
+
+				if self.size == 0:
+					self.head = None
+					self.tail = None
+
+				else:
+					temp = self.head
+					self.head = temp.next
+
+			elif index == self.size-1:
+				previous_index = int(index) -1
+				previous_node = self.get_node_by_index(previous_index)
+
+				previous_node.next = None
+				self.tail = previous_node
+
+			else:
+				previous_index = int(index) -1
+				previous_node = self.get_node_by_index(previous_index)
+
+				temp = previous_node.next.next
+				previous_node.next = temp
+		else:
+			print "Your index your index is out of range"
 
 	def add_node_by_index(self, value, index):
 		# not re-setting tail, why?
