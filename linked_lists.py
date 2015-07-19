@@ -1,10 +1,10 @@
 # Write a linked list implementation with methods that do these things:
 # - get node by index!
-# - get index of node
+# - get index of node!
 # - add node at index!
-# - delete node at index
-# - returns length of list
-# - print list
+# - delete node at index!
+# - returns length of list!
+# - print list!
 # Bonus:
 # - methods to find min and max of list
 
@@ -16,6 +16,8 @@ class Node:
 	def __str__(self):
 		return str(self.value)
 
+	def __repr__(self):
+		return str(self.value)
 
 class List:
 	def __init__(self):
@@ -24,7 +26,6 @@ class List:
 		self.size = 0
 
 	def get_length(self):
-		print self.size
 		return self.size
 
 	def print_list(self):
