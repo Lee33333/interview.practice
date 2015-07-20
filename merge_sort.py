@@ -21,6 +21,7 @@ def merge(array1, array2):
 	array1_counter = 0
 	array2_counter = 0
 	#import pdb; pdb.set_trace()
+	#now in nlogn without slicing
 	while array1_counter < len(array1) or array2_counter < len(array2):
 		if array1_counter >= len(array1):
 			sorted_array.extend(array2[array2_counter:])
@@ -61,5 +62,5 @@ def merge(array1, array2):
 
 
 if __name__ == "__main__":
-	array = [5, 4, 1, 8, 12, 3, 9, 11]
+	array = [5, 4, 1, 8, 12, 3, 9, 11, -3, 0, 0]
 	merge_sort(array)
