@@ -4,7 +4,6 @@ def bubble_sort(array):
 	end = len(array)
 
 	while end > 0:
-	#for i in range(0, len(array)):
 
 		while p1 < len(array) and p2 < len(array):
 			if array[p1] <= array[p2]:

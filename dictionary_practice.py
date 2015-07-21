@@ -27,20 +27,27 @@ def count_unique(string1):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
 
     """
+    word_dict = {}
+    word_list = string1.split()
+    for word in word_list:
+        word_count = word_dict.get(word, 0) +1
+        word_dict[word] = word_count
+
+    return word_dict
+
+
     #O(n)
 
     #by default splits on any whitespace
-    words = string1.split()
-    d = {}
-    for word in words:
-        if word in d:
-            d[word] = d[word] + 1 
-        else:
-            d[word] = 1
+    # words = string1.split()
+    # d = {}
+    # for word in words:
+    #     if word in d:
+    #         d[word] = d[word] + 1 
+    #     else:
+    #         d[word] = 1
 
-    return d
-
-    
+    # return d
 
 def common_items(list1, list2):
     """Produce the set of common items in two lists.
@@ -90,6 +97,8 @@ def common_items(list1, list2):
 
     # return common
 
+    return []
+
 
 def unique_common_items(list1, list2):
     """Produce the set of *unique* common items in two lists.
@@ -112,23 +121,15 @@ def unique_common_items(list1, list2):
         [1, 2]
 
     """
+    set1 = set(list1)
+    set2 = set(list2)
+    #returns unique items between sets
+    result = set1.intersection(set2)
+    list_of_result = list(result)
 
-    def isin(lists, element):
-        for num in lists:
-            if num == element:
-                return True
-        return False
+    return list_of_result
 
-    common = common_items(list1, list2)
-
-    newlist = []
-
-    for item in common:
-        if isin(newlist, item) == False:
-            newlist.append(item)
-
-    return newlist
-
+    #try with dictionary
 
 
 def sum_zero(list1):
@@ -156,24 +157,35 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
+    # temp = []
+    # new_list = []
 
-    newlist = []
-    finallist = []
+    # for item in list1:
+    #     if -(item) not in temp:
+    #         temp.append)item
 
-    for i in range(0, len(list1)):
-        for j in range(i, len(list1)):
-            if list1[i] + list1[j] == 0:
-                if list1[i] not in newlist and -list1[i] not in newlist:
-                    newlist.append(list1[i])
 
-    for item in newlist:
-        finallist.append([item, -item])
 
-    return finallist
 
-ourlist = [1, -1, 5, 6, 7, 8, 7]
+#     newlist = []
+#     finallist = []
 
-print sum_zero(ourlist)
+#     for i in range(0, len(list1)):
+#         for j in range(i, len(list1)):
+#             if list1[i] + list1[j] == 0:
+#                 if list1[i] not in newlist and -list1[i] not in newlist:
+#                     newlist.append(list1[i])
+
+#     for item in newlist:
+#         finallist.append([item, -item])
+
+#     return finallist
+
+# ourlist = [1, -1, 5, 6, 7, 8, 7]
+
+# print sum_zero(ourlist)
+
+    return []
 
 def find_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
@@ -192,14 +204,14 @@ def find_duplicates(words):
 
     """
 
-    mylist = []
+    # mylist = []
 
-    for word in words:
-        if word  not in mylist:
-            mylist.append(word)
+    # for word in words:
+    #     if word  not in mylist:
+    #         mylist.append(word)
 
-    return mylist
-
+    # return mylist
+    return []
 
 
 def word_length(words):
