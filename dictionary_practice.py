@@ -35,9 +35,6 @@ def count_unique(string1):
 
     return word_dict
 
-
-    #O(n)
-
     #by default splits on any whitespace
     # words = string1.split()
     # d = {}
@@ -129,8 +126,6 @@ def unique_common_items(list1, list2):
 
     return list_of_result
 
-    #try with dictionary
-
 
 def sum_zero(list1):
     """Return list of x,y number pair lists from a list where x+y==0
@@ -157,15 +152,17 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-    # temp = []
-    # new_list = []
+    d= {}
 
-    # for item in list1:
-    #     if -(item) not in temp:
-    #         temp.append)item
-
-
-
+    for item in list1:
+        if item == 0:
+            if list1.count(item) > 1:
+                    d[(item, item)] = 0
+        else:
+            if -item in list1:
+                    d[(-abs(item), abs(item))] = 0
+    return d.keys()
+    
 
 #     newlist = []
 #     finallist = []
@@ -203,6 +200,9 @@ def find_duplicates(words):
         ['Rose', 'a', 'is', 'rose']
 
     """
+
+    new_list = set(words)
+    return new_list
 
     # mylist = []
 
