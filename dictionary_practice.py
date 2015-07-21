@@ -227,8 +227,20 @@ def word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
+    d = {}
+    new_list = []
 
-    return []
+    for word in words:
+        length = len(word)
+        if length in d:
+            d[length] = d[length] + [word]
+        else:
+            d[length] = [word]
+
+    for k, v in d.iteritems():
+        new_list.append((k,v))
+
+    return new_list
 
 
 def adv_word_length_sorted_words(words):
@@ -245,8 +257,22 @@ def adv_word_length_sorted_words(words):
         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
 
     """
+# not O(n)
+    d = {}
+    new_list = []
 
-    return []
+    for word in words:
+        length = len(word)
+        if length in d:
+            d[length] = d[length] + [word]
+        else:
+            d[length] = [word]
+
+    for k, v in d.iteritems():
+        v.sort()
+        new_list.append((k,v))
+
+    return new_list
 
 
 def pirate_talk(phrase):
@@ -292,9 +318,17 @@ def pirate_talk(phrase):
 
     """
 
-    return ""
+    dict_pirate = {'madam': 'proud beauty', 'boy': 'matey', 'lawyer': 'foul blaggart', 'sir': 'matey', 'students': 'swabbies', 'hello': 'avast', 'professor': 'foul blaggart', 'hotel': 'fleabag inn', 'restroom': 'head', 'excuse': 'arr', 'are': 'be', 'student': 'swabbie', 'the': "th'", 'man': 'matey', 'my': 'me', 'your': 'yer', 'is': 'be', 'restaurant': 'galley'}
 
+    phrase_list = phrase.split()
 
+    for i in range(0, len(phrase_list)):
+        if phrase_list[i] in dict_pirate:
+            phrase_list[i] = dict_pirate[phrase_list[i]]
+
+    new_phrase = " ".join(phrase_list)
+    return new_phrase
+    
 ##############################################################################
 # END OF SKILLS TEST; YOU CAN STOP HERE.
 
