@@ -42,8 +42,9 @@ def multiply_list(lst):
     >>> multiply_list([5, 24, 48, 88, 0])
     0
     """
-
-    pass
+    if len(lst) == 1:
+        return lst[0]
+    return lst[0] * multiply_list(lst[1:])
 
 
 def factorial(n):
