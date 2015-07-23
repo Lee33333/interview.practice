@@ -65,7 +65,9 @@ def factorial(n):
     24
     """
 
-    pass
+    if n == 1:
+        return 1
+    return n * factorial(n-1)
 
 
 def count_list(lst):
@@ -78,7 +80,9 @@ def count_list(lst):
     4
     """
 
-    pass
+    if lst == []:
+        return 0
+    return 1 + count_list(lst[1:])
 
 
 def sum_list(lst):
@@ -91,7 +95,9 @@ def sum_list(lst):
     165
     """
 
-    pass
+    if lst == []:
+        return 0
+    return lst[0] + sum_list(lst[1:])
 
 
 def reverse(lst):
@@ -104,7 +110,9 @@ def reverse(lst):
     []
     """
 
-    pass
+    if lst == []:
+        return []
+    return [lst[-1]] + reverse(lst[:-1])
 
 
 def fibonacci(n):
@@ -144,7 +152,9 @@ def fibonacci(n):
     34
     """
 
-    pass
+    if n <= 0:
+        return 1
+    return fibonacci(n-1) + fibonacci(n-2)
 
 
 def find(lst, i):
